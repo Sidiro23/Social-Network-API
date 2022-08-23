@@ -35,7 +35,7 @@ module.exports ={
      .catch((err)=> res.status(500).json(err));
   },
 
-  updateTought(req,res){
+  updateThought(req,res){
     Thought.findOneAndUpdate(
       {_id: req.params.thoughtId},
       {$set: req.body},
