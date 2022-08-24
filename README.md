@@ -24,7 +24,7 @@
   ## Description
   This is an API for a social network web application where users can share their thoughts, react to friends' thoughts, and create a friend list. It also creates a        timestamp using Moment
   ## Installation
-  To run this application it requires to npm install .To run this application simply open the terminal and type npm start server.
+  To run this application it requires to npm install .To run this application simply open the terminal and type npm start.
   ## Usage
   This is a Social network API where you can create new thoughts , react on existing thoughts from other users. You can also add friends.
   ## How to Contribute
