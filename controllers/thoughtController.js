@@ -8,7 +8,7 @@ module.exports ={
   },
 
   getSingleThought(req,res){
-    Thought.findOne({_id: req.params.thougghtId})
+    Thought.findOne({_id: req.params.thoughtId})
     .select('-__v')
     .then((thought)=>
     !thought
@@ -39,12 +39,12 @@ module.exports ={
     Thought.findOneAndUpdate(
       {_id: req.params.thoughtId},
       {$set: req.body},
-      {runValidators: true, New: true}
+      {runValidators: true, new: true}
     )
-    .then((user)=>
-    !user
+    .then((thought)=>
+    !thought
     ? res.status(404).json({message: 'No thought Found with this ID!'})
-    : res.json(user)
+    : res.json(thought)
     )
     .catch((err)=> res.status(500).json(err));
   },
@@ -57,10 +57,10 @@ module.exports ={
     : User.findOneAndUpdate(
       { thoughts: req.params.thoughtId},
       {$pull: {thoughts: req.params.thoughtId}},
-      {new: true}
+      {runValidators: true, new: true}
     ))
-    .then((user)=>
-    !user
+    .then((thought)=>
+    !thought
     ? res.status(404).json({ message: 'Thought deleted, but no user found'})
     : res.json({message: 'Thought succesfully deleted'})
     )
